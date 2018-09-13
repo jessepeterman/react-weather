@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './Index.css';
-import WEATHER_KEY from './config';
+// import WEATHER_KEY from './config';
 const url = 'http://api.openweathermap.org/data/2.5/weather?q=';
 
 // const Context = React.createContext();
