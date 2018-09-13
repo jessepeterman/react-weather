@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './Index.css';
-import key from './config';
+import WEATHER_KEY from './config';
 const url = 'http://api.openweathermap.org/data/2.5/weather?q=';
 
 // const Context = React.createContext();
@@ -158,7 +158,7 @@ class WeatherForm extends React.Component {
     const zip = this.state.zipcode;
 
     if (!this.state.weatherData.some(item => item.zip === zip)) {
-      fetch(url + zip + ',us&units=imperial&appid=' + key)
+      fetch(url + zip + ',us&units=imperial&appid=' + WEATHER_KEY)
         .then(res => res.json())
         .then(data => {
           if (data.main) {
@@ -176,10 +176,7 @@ class WeatherForm extends React.Component {
                 JSON.stringify(newWeatherData)
               );
 
-              return {
-                ...prevState,
-                weatherData: newWeatherData
-              };
+              return { ...prevState, weatherData: newWeatherData };
             });
             console.log(`${data.name}, ${data.main.temp}˚.`);
           } else {
@@ -260,130 +257,3 @@ const App = () => {
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));
-
-//***************************************************************
-
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './Index.css';
-// const Context = React.createContext();
-
-// const Header = () => {
-//   return (
-//     <div className="header">
-//       <Context.Consumer>
-//         {user => <h1>Get Yo Stuff {user.name}</h1>}
-//       </Context.Consumer>
-//     </div>
-//   );
-// };
-
-// const SuperApp = () => {
-//   const user = { name: 'Jesse', age: 32 };
-
-//   return (
-//     <div>
-//       <Context.Provider value={user}>
-//         <App />
-//       </Context.Provider>
-//     </div>
-//   );
-// };
-
-// const App = props => {
-//   return (
-//     <div>
-//       <Header />
-//       <Parent />
-//     </div>
-//   );
-// };
-
-// const Parent = props => {
-//   return (
-//     <div>
-//       <h1>Parent Here... </h1>
-//       <Child />
-//     </div>
-//   );
-// };
-
-// const Child = props => {
-//   return (
-//     <div>
-//       <h3>Child here</h3>
-//       <Context.Consumer>{user => <Baby user={user} />}</Context.Consumer>
-//     </div>
-//   );
-// };
-
-// const Baby = props => {
-//   return (
-//     <li>
-//       Baby here...Hello {props.user.name}, you are {props.user.age}
-//     </li>
-//   );
-// };
-
-// const zipWeatherData = [
-//   {
-//     id: 1,
-//     zip: 92691,
-//     temp: 75
-//   },
-//   {
-//     id: 2,
-//     zip: 94116,
-//     temp: 62
-//   },
-//   {
-//     id: 3,
-//     zip: 93006,
-//     temp: 70
-//   },
-//   {
-//     id: 4,
-//     zip: 12345,
-//     temp: 80
-//   }
-// ];
-
-// const GetWeatherApp = () => {
-//   return <WeatherForm props={zipWeatherData} />;
-// };
-
-// const WeatherForm = props => {
-//   return (
-//     <div className="weather-form-container">
-//       <Input />
-//       <WeatherList props={props} />
-//     </div>
-//   );
-// };
-
-// const WeatherList = props => {
-//   return props.props.props.map(item => (
-//     <WeatherListItem key={item.id} zipcode={item.zip} temp={item.temp} />
-//   ));
-// };
-
-// const WeatherListItem = ({ zipcode, temp }) => {
-//   return (
-//     <li className={{ backgroundColor: 'red' }}>
-//       Zipcode: {zipcode}, Weather: {temp}˚
-//     </li>
-//   );
-// };
-
-// const Input = () => {
-//   return (
-//     <div>
-//       <input className="form-items input" placeholder="Enter zipcode" />
-//       <button className="form-items button" type="submit">
-//         Submit
-//       </button>
-//     </div>
-//   );
-// };
-
-// ReactDOM.render(<SuperApp />, document.getElementById('root'));
