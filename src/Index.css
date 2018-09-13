@@ -1,0 +1,80 @@
+html {
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+  background-color: white;
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 0.5rem solid black;
+}
+
+.header > h1 {
+  font-size: 5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.weather-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+}
+
+.form-items {
+  margin: 1rem 0.5rem 1rem 0.5rem;
+}
+
+.input {
+  width: 150px;
+  height: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.button {
+  position: relative;
+  background-color: rgb(26, 208, 144);
+  height: 2.35rem;
+  top: -2px;
+  border-radius: 2px;
+  font-size: 1.2rem;
+}
+
+.button:hover {
+  background-color: rgb(11, 171, 115);
+}
+
+li {
+  font-size: 1.2rem;
+  /* border-bottom: 1px solid black; */
+  list-style: none;
+  padding: 4px;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+li:nth-child() {
+  border-bottom: 0px;
+}
+
+/* li:hover {
+  background-color: rgb(225, 225, 225);
+} */
+
+#message {
+  color: red;
+  position: absolute;
+}
+
+.selected {
+  background-color: rgb(225, 225, 225);
+}
